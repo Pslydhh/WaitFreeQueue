@@ -169,10 +169,6 @@ public class WaitFreeQueueV1<T> {
 		}
 		
 		cell = node.getCells(enqId & Node.CELLS_BIT);
-		if(cell == null) {
-			System.err.println((enqId >>> Node.RIght_shift) + " " + node.id);
-			System.exit(0);
-		}
 		cell.setVal(item);
 	}
 	
@@ -301,7 +297,7 @@ public class WaitFreeQueueV1<T> {
 		Deq<T> deq = th.dr;
 		deq.id = id;
 		deq.setIdx(id);
-//		System.out.println("deq_slow: this");
+
 		help_deq(th, th);
 		long i = -deq.idx;
 		Node<T> node = findCell(th.popNode, i, th);
@@ -384,11 +380,6 @@ public class WaitFreeQueueV1<T> {
 			
 			Node<T> node = dp = findCell(dp, idx, th);
 			Cell<T> c = node.getCells(idx & Node.CELLS_BIT);
-
-			if(c == null) {
-				System.err.println("Errr!");
-				System.exit(0);
-			}
 			
 			if(c.casDeq(null, deq) || c.deq == deq) {
 				deq.casIdx(idx, -idx);
