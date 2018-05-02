@@ -1,6 +1,6 @@
 # WaitFreeQueue
 
-Hello,gues! this queue based on the good jobs of http://chaoran.me/assets/pdf/wfq-ppopp16.pdf and http://ftp.cs.technion.ac.il/he/people/mad/online-publications/ppopp2013-x86queues.pdf
+Hello,gues! this queue based on the good jobs of http://ftp.cs.technion.ac.il/he/people/mad/online-publications/ppopp2013-x86queues.pdf
 
 -Xmx1024m -Xmn256m -XX:+UseG1GC -XX:+TieredCompilation
 
