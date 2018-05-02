@@ -1,6 +1,7 @@
 # WaitFreeQueue
 
 Hello,gues! this queue based on the good jobs of paper(http://chaoran.me/assets/pdf/wfq-ppopp16.pdf)
+this queue is Obviously faster than 
 
 -Xmx1024m -Xmn256m -XX:+UseG1GC -XX:+TieredCompilation
 
