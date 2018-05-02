@@ -2,7 +2,7 @@
 
 Hello,gues!
 
--Xmn256m -XX:+UseG1GC -XX:+TieredCompilation
+-Xmx1024m -Xmn256m -XX:+UseG1GC -XX:+TieredCompilation
 
 # test_
 <pre><code>
@@ -65,3 +65,13 @@ public class benchmark1 {
 	}
 }
 </pre></code>
+# output
+testWaitFreeQueue
+
+testWaitFreeQueue 0 20000000 Ops Hello world! main
+
+rings: 4
+
+ints[0-9999999] has been Verify through
+
+cost times(seconds): 0.775
