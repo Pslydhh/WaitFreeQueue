@@ -5,7 +5,7 @@ and github: https://github.com/chaoran/fast-wait-free-queue
 
 this queue is Obviously faster than ConcurrentLinkedQueue and LinkedTransferQueue
 # command
--XX:-RestrictContended -Xmx1024m -Xmn256m -XX:+UseG1GC -XX:+TieredCompilation
+-Xmx1024m -Xmn256m -XX:+UseG1GC -XX:+TieredCompilation
 
 # test_
 <pre><code>
