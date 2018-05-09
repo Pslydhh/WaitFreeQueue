@@ -319,8 +319,8 @@ public class WaitFreeQueueV1<T> {
 			return ;
 		
 		Node<T> dp = ph.popNode;
-		_unsafe.loadFence();
-		idx = deq.idx;
+//		_unsafe.loadFence();
+		idx = deq.getIdx();//deq.idx;
 		
 		long old = id, i = id + 1, new_ = 0;
 		for(;;) {
@@ -657,6 +657,10 @@ public class WaitFreeQueueV1<T> {
 			super();
 			this.id = id;
 			this.idx = idx;
+		}
+		
+		long getIdx() {
+			return _unsafe.getLongVolatile(this, idx_offset);
 		}
 		
 		void setIdx(long val) {
