@@ -296,7 +296,7 @@ public class WaitFreeQueueV1<T> {
 	Object deq_slow(Handle<T> th, long id) {
 		Deq<T> deq = th.dr;
 		deq.id = id;
-		deq.setIdx(id);
+		deq.idx = id;
 
 		help_deq(th, th);
 		long i = -deq.idx;
@@ -319,8 +319,7 @@ public class WaitFreeQueueV1<T> {
 			return ;
 		
 		Node<T> dp = ph.popNode;
-//		_unsafe.loadFence();
-		idx = deq.getIdx();//deq.idx;
+		idx = deq.idx;//deq.getIdx();
 		
 		long old = id, i = id + 1, new_ = 0;
 		for(;;) {
@@ -651,20 +650,12 @@ public class WaitFreeQueueV1<T> {
 		@Contended
 		long id;
 		@Contended
-		long idx;
+		volatile long idx;
 		
 		public Deq(long id, long idx) {
 			super();
 			this.id = id;
 			this.idx = idx;
-		}
-		
-		long getIdx() {
-			return _unsafe.getLongVolatile(this, idx_offset);
-		}
-		
-		void setIdx(long val) {
-			_unsafe.putLongVolatile(this, idx_offset, val);
 		}
 		
 		boolean casIdx(long cmp, long val) {
