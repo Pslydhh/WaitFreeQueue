@@ -1,6 +1,6 @@
 # WaitFreeQueue
 
-Hello,gues! this queue based on the good jobs of paper(http://chaoran.me/assets/pdf/wfq-ppopp16.pdf)
+Hello,guys! this queue based on the good jobs of paper(http://chaoran.me/assets/pdf/wfq-ppopp16.pdf)
 
 and github: https://github.com/chaoran/fast-wait-free-queue
 
